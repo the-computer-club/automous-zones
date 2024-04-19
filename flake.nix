@@ -32,6 +32,11 @@
           publicKey = "FuOo9TwnE8P/zDBorjGNtsyPImHsHPxA21ePNrElsD0=";
           ipv4 = [ "172.16.2.5/32" ];
         };
+
+        goatware = {
+          publicKey = "YO5w0tMvPt2lDdg9eD25wZsz9rWMTGbA/KuPYB6F1jQ=";
+          ipv4 = ["172.16.2.7/32"];
+        };
       };
     };
   };
