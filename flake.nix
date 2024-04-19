@@ -33,6 +33,11 @@
           ipv4 = [ "172.16.2.5/32" ];
         };
 
+        flagship = {
+          publicKey = "qHQIOwGK7+6hXuBr6g1U00IzOM1p7Wc/ov/svPom0A8=";
+          ipv4 = [ "172.16.2.6/32" ];
+        };
+
         goatware = {
           publicKey = "YO5w0tMvPt2lDdg9eD25wZsz9rWMTGbA/KuPYB6F1jQ=";
           ipv4 = ["172.16.2.7/32"];
