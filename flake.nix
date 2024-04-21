@@ -49,7 +49,7 @@
         };
 
         "0xc000000f" = {
-          publicKey = "58qZ8KjLz80JPfSgsWU7iPpS6bjy94NONVoufLGxeX4="
+          publicKey = "58qZ8KjLz80JPfSgsWU7iPpS6bjy94NONVoufLGxeX4=";
           ipv4 = ["172.16.2.10/32"];
         };
       };
