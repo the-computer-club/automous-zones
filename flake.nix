@@ -42,6 +42,11 @@
           publicKey = "YO5w0tMvPt2lDdg9eD25wZsz9rWMTGbA/KuPYB6F1jQ=";
           ipv4 = ["172.16.2.7/32"];
         };
+
+        pager1 = {
+          publicKey = "NEN3VPGm58JLQkjUwq8MOhC/d7ZEZXcIjBl84ENGBzg=";
+          ipv4 = ["172.16.2.8/32"];
+        };
       };
     };
   };
