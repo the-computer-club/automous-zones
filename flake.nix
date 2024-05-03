@@ -18,7 +18,7 @@
         };
 
         cypress = {
-          publicKey = "nvuYPHJ2BUjXGyUMwr03XZYTMZGSQDyv3vDfZpGzfwo=";
+          publicKey = "5j44nM6qmbJ2S8B24aA/H6UEPVXJFfxf8sTacMktMis=";
           ipv4 = [ "172.16.2.3/32" ];
           selfEndpoint = "98.46.211.251:63723";
         };
