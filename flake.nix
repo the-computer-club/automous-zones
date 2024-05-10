@@ -27,7 +27,12 @@
           publicKey = "qXsTs+IsmHeq9+rulmG6M7XhVgu/3N/wEgEaHPuHciU=";
           ipv4 = [ "172.16.2.4/32" ];
         };
-
+        
+        sky = {
+          publicKey = "EF4+fPzrAMqasS8Z7auajOuHmcvqcHVGQNPwhPo0/U8=";
+          ipv4 = [ "172.16.2.42/32" ];
+        };
+        
         quantum = {
           publicKey = "FuOo9TwnE8P/zDBorjGNtsyPImHsHPxA21ePNrElsD0=";
           ipv4 = [ "172.16.2.5/32" ];
