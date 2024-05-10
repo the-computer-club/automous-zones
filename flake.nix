@@ -57,8 +57,13 @@
           publicKey = "5j44nM6qmbJ2S8B24aA/H6UEPVXJFfxf8sTacMktMis=";
           ipv4 = ["172.16.2.69/32"];
         };
+ 
+        "jita.etherealryft.net" = {
+          publicKey = "Ngp854R/d126OVrO7nRv0yj8rdHRjGURa5LbD/UT8Xk=";
+          selfEndpoint = "72.55.233.131:56854";
+          ipv4 = ["172.16.2.71/32"];
+        };
       };
     };
   };
 }
-
