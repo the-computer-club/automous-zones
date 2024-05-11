@@ -8,7 +8,7 @@ networking.wireguard.interfaces = let
  azlib = inputs.automous-zones.lib;
 in {
     networking.wireguard.interfaces.wg0 = {
-        peers = azlib groups; 
+        peers = azlib peers; 
     };
 };
 ```
