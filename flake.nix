@@ -1,7 +1,19 @@
 
 {
   outputs = _:
+  let
+    mapAttrsToList = f: attrs: map (name: f name attrs.${name}) (builtins.attrNames attrs);
+    toPeers = n: v: {
+      publicKey = v.publicKey;
+      allowedIPs = v.ipv4;
+      endpoint = v.selfEndpoint or null;
+    };
+    toNonFlakeParts = data: (mapAttrsToList toPeers data);
+  in 
   {
+    lib = {
+      inherit toPeers toNonFlakeParts;
+    };
     flakeModules.asluni.wireguard.networks.asluni = {
       listenPort = 63723;
       peers.by-name = {
