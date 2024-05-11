@@ -4,28 +4,35 @@ Currently, this repo is designed to work with Flake-gaurd out of the box. Howeve
 
 ## flake
 ```nix
-inputs = {
+{
+  inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
     automous-zones.url = "github:the-computer-club/automous-zones";
-};
-outputs = inputs@{self, nixpkgs, asluni, ...}:{
+  };
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    asluni,
+    ...
+  }: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
         {
-           networking.wireguard.interfaces.asluni = 
-             let # asluni can be anything.
-               peers = inputs.automous-zones.flakeModules.asluni.wireguard.networks.asluni.peers.by-name;
-               aslib = inputs.automous-zones.lib;
-             in { 
-                privateKeyFile = "/var/lib/wireguard/key";
-                generatePrivateKeyFile = true;
-                peers = aslib.toNonFlakeParts peers; # this is where the magic happens
-             };
+          networking.wireguard.interfaces.asluni = let
+            # asluni can be anything.
+            peers = inputs.automous-zones.flakeModules.asluni.wireguard.networks.asluni.peers.by-name;
+            aslib = inputs.automous-zones.lib;
+          in {
+            privateKeyFile = "/var/lib/wireguard/key";
+            generatePrivateKeyFile = true;
+            peers = aslib.toNonFlakeParts peers; # this is where the magic happens
+          };
         }
-        configuration.nix
-        hardware-configuration.nix
+        ./configuration.nix
+        ./hardware-configuration.nix
       ];
     };
-};
+  };
+}
 ```
