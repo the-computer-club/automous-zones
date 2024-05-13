@@ -50,6 +50,11 @@
           ipv4 = [ "172.16.2.64/32" ];
         };
 
+        ov13 = {
+          publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
+          ipv4 = [ "172.16.2.27/32" ];
+        };
+
         quantum = {
           publicKey = "FuOo9TwnE8P/zDBorjGNtsyPImHsHPxA21ePNrElsD0=";
           ipv4 = [ "172.16.2.5/32" ];
