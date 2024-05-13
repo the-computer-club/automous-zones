@@ -44,7 +44,12 @@
           publicKey = "EF4+fPzrAMqasS8Z7auajOuHmcvqcHVGQNPwhPo0/U8=";
           ipv4 = [ "172.16.2.42/32" ];
         };
-        
+
+        simcra = {
+          publicKey = "iKKn0hxQdScrXXkpmIC83Zgo0Y3GexCQ4+Qd/6NryUc=";
+          ipv4 = [ "172.16.2.64/32" ];
+        };
+
         quantum = {
           publicKey = "FuOo9TwnE8P/zDBorjGNtsyPImHsHPxA21ePNrElsD0=";
           ipv4 = [ "172.16.2.5/32" ];
