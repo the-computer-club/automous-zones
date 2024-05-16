@@ -84,6 +84,11 @@
           publicKey = "5j44nM6qmbJ2S8B24aA/H6UEPVXJFfxf8sTacMktMis=";
           ipv4 = ["172.16.2.69/32"];
         };
+
+        comet = {
+          publicKey = "w90lfP16gY5debtjkfKVyKdL8mtlEXUmciNRTyTi7jw=";
+          ipv4 = ["172.16.2.96/32"];
+        };
  
         "jita.etherealryft.net" = {
           publicKey = "Ngp854R/d126OVrO7nRv0yj8rdHRjGURa5LbD/UT8Xk=";
