@@ -86,7 +86,7 @@
         };
 
         comet = {
-          publicKey = "";
+          publicKey = "w90lfP16gY5debtjkfKVyKdL8mtlEXUmciNRTyTi7jw=";
           ipv4 = ["172.16.2.96/32"];
         };
  
