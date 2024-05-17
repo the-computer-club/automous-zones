@@ -95,6 +95,11 @@
           selfEndpoint = "72.55.233.131:56854";
           ipv4 = ["172.16.2.71/32"];
         };
+
+        merosity = {
+          publicKey = "UHmZ/pzB5cUFGEm9708pdG42vYVO+IkqtzeNaBAseWg=";
+          ipv4 = ["172.16.2.254/32"];
+        };
       };
     };
   };
