@@ -80,6 +80,11 @@
           ipv4 = ["172.16.2.10/32"];
         };
 
+        Scott = {
+          publicKey = "5W6KorrxAf3MWErAYlgSXcGUNEJfBwPTBlyEfRRfeXU=";
+          ipv4 = [ "172.16.2.64/32" ];
+        };
+
         frogson = {
           publicKey = "5j44nM6qmbJ2S8B24aA/H6UEPVXJFfxf8sTacMktMis=";
           ipv4 = ["172.16.2.69/32"];
