@@ -82,7 +82,7 @@
 
         Scott = {
           publicKey = "5W6KorrxAf3MWErAYlgSXcGUNEJfBwPTBlyEfRRfeXU=";
-          ipv4 = [ "172.16.2.64/32" ];
+          ipv4 = [ "172.16.2.65/32" ];
         };
 
         frogson = {
