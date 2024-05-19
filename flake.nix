@@ -63,7 +63,7 @@
         simcra = {
           publicKey = "pq529jYwkJZZzdWB2fJ08A+41prV5gVsg3iE/kVN0GQ=";
           ipv4 = [ "172.16.2.9/32" ];
-        }
+        };
 
         "0xc000000f" = {
           publicKey = "58qZ8KjLz80JPfSgsWU7iPpS6bjy94NONVoufLGxeX4=";
