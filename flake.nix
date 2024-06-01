@@ -7,6 +7,7 @@
       publicKey = v.publicKey;
       allowedIPs = v.ipv4;
       endpoint = v.selfEndpoint or null;
+      persistentKeepalive = v.persistentKeepalive or null;
     };
     toNonFlakeParts = data: (mapAttrsToList toPeers data);
   in 
@@ -32,7 +33,7 @@
         cypress = {
           publicKey = "nvuYPHJ2BUjXGyUMwr03XZYTMZGSQDyv3vDfZpGzfwo=";
           ipv4 = [ "172.16.2.3/32" ];
-          selfEndpoint = "98.46.211.251:63723";
+          persistentKeepalive = 10;
         };
 
         hydrogen = {
