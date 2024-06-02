@@ -105,6 +105,11 @@
           publicKey = "UHmZ/pzB5cUFGEm9708pdG42vYVO+IkqtzeNaBAseWg=";
           ipv4 = ["172.16.2.254/32"];
         };
+
+        tangobee = {
+          publicKey = "5kGzZgx1QMLvdm7OsZoMzG7NC/4Pf3/S2MKFAvcR5wU=";
+          ipv4 = ["172.16.2.11/32"];
+        };
       };
     };
   };
