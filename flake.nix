@@ -51,7 +51,7 @@
           ipv4 = [ "172.16.2.6/32" ];
         };
 
-        goatware = {
+        argon = {
           publicKey = "YO5w0tMvPt2lDdg9eD25wZsz9rWMTGbA/KuPYB6F1jQ=";
           ipv4 = [ "172.16.2.7/32" ];
         };
