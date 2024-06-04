@@ -12,7 +12,7 @@ Currently, this repo is designed to work with Flake-gaurd out of the box. Howeve
   outputs = inputs @ {
     self,
     nixpkgs,
-    asluni,
+    automous-zones,
     ...
   }: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
@@ -27,6 +27,7 @@ Currently, this repo is designed to work with Flake-gaurd out of the box. Howeve
             privateKeyFile = "/var/lib/wireguard/key";
             generatePrivateKeyFile = true;
             peers = aslib.toNonFlakeParts peers; # this is where the magic happens
+            ips = [ "<your-ip-address>/32" ];
           };
         }
         ./configuration.nix
