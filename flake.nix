@@ -73,7 +73,12 @@
 
         tangobee = {
           publicKey = "5kGzZgx1QMLvdm7OsZoMzG7NC/4Pf3/S2MKFAvcR5wU=";
-          ipv4 = ["172.16.2.11/32"];
+          ipv4 = [ "172.16.2.11/32" ];
+        };
+
+        voidhawk = {
+          publicKey = "okKNJFTh42ZDFD5zcm2+bBJ6S2ht2QrQYb1Ktm+qdkY=";
+          ipv4 = [ "172.16.2.12/32" ];
         };
 
         ov13 = {
