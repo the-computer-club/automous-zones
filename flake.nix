@@ -81,6 +81,11 @@
           ipv4 = [ "172.16.2.12/32" ];
         };
 
+        patch = {
+          publicKey = "/tOmWpj1LZih8AqtS0P8PoBtI55+CY97TEUXx4iMxQo=";
+          ipv4 = [ "172.16.2.13/32" ];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
