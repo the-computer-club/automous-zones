@@ -56,6 +56,11 @@
           ipv4 = [ "172.16.2.7/32" ];
         };
 
+        fluorine = {
+          publicKey = "fCw+r4TKsxh36CdDSc6BTf0an9F2O8KQ189dYukpFHs=";
+          ipv4 = [ "172.15.2.14/32" ];
+        };
+
         pager1 = {
           publicKey = "NEN3VPGm58JLQkjUwq8MOhC/d7ZEZXcIjBl84ENGBzg=";
           ipv4 = [ "172.16.2.8/32" ];
