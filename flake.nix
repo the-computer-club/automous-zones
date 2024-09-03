@@ -59,6 +59,7 @@
         fluorine = {
           publicKey = "fCw+r4TKsxh36CdDSc6BTf0an9F2O8KQ189dYukpFHs=";
           ipv4 = [ "172.16.2.14/32" ];
+          persistentKeepalive = 10;
         };
 
         pager1 = {
