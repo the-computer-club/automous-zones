@@ -118,6 +118,11 @@
           ipv4 = [ "172.16.2.96/32" ];
         };
 
+        hexi = {
+          publicKey = "UHmZ/pzB5cUFGEm9708pdG42vYVO+IkqtzeNaBAseWg=";
+          ipv4 = ["172.16.2.99/32"];
+        };
+
         Scott = {
           publicKey = "5W6KorrxAf3MWErAYlgSXcGUNEJfBwPTBlyEfRRfeXU=";
           ipv4 = [ "172.16.2.128/32" ];
@@ -127,6 +132,7 @@
           publicKey = "UHmZ/pzB5cUFGEm9708pdG42vYVO+IkqtzeNaBAseWg=";
           ipv4 = ["172.16.2.254/32"];
         };
+        
       };
     };
   };
