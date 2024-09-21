@@ -10,12 +10,8 @@
       persistentKeepalive = v.persistentKeepalive or null;
     };
     toNonFlakeParts = data: (mapAttrsToList toPeers data);
-  in 
-  {
-    lib = {
-      inherit toPeers toNonFlakeParts;
-    };
-    flakeModules.asluni.wireguard.networks.asluni = {
+
+    wireguard.networks.asluni = {
       listenPort = 63723;
       peers.by-name = {
         cardinal = {
@@ -96,7 +92,7 @@
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
         };
-        
+
         sky = {
           publicKey = "EF4+fPzrAMqasS8Z7auajOuHmcvqcHVGQNPwhPo0/U8=";
           ipv4 = [ "172.16.2.42/32" ];
@@ -132,8 +128,14 @@
           publicKey = "UHmZ/pzB5cUFGEm9708pdG42vYVO+IkqtzeNaBAseWg=";
           ipv4 = ["172.16.2.254/32"];
         };
-        
       };
     };
+  in
+  {
+    lib = {
+      inherit toPeers toNonFlakeParts;
+    };
+    flakeModules.asluni = { inherit wireguard; };
+    nixosModules.asluni = { inherit wireguard; };
   };
 }
