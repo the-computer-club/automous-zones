@@ -98,6 +98,11 @@
           ipv4 = [ "172.16.2.42/32" ];
         };
 
+        watermelon = {
+          publicKey = "RksMNP9ojih2Jt8JqC1yWNImQnv0eJJ802fNS4T9pCI=";
+          ipv4 = [ "172.16.2.55/32" ];
+        };
+        
         frogson = {
           publicKey = "5j44nM6qmbJ2S8B24aA/H6UEPVXJFfxf8sTacMktMis=";
           ipv4 = [ "172.16.2.69/32" ];
