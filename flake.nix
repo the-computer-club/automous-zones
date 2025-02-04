@@ -52,12 +52,6 @@
           ipv4 = [ "172.16.2.7/32" ];
         };
 
-        fluorine = {
-          publicKey = "fCw+r4TKsxh36CdDSc6BTf0an9F2O8KQ189dYukpFHs=";
-          ipv4 = [ "172.16.2.14/32" ];
-          persistentKeepalive = 10;
-        };
-
         pager1 = {
           publicKey = "NEN3VPGm58JLQkjUwq8MOhC/d7ZEZXcIjBl84ENGBzg=";
           ipv4 = [ "172.16.2.8/32" ];
@@ -86,6 +80,12 @@
         patch = {
           publicKey = "/tOmWpj1LZih8AqtS0P8PoBtI55+CY97TEUXx4iMxQo=";
           ipv4 = [ "172.16.2.13/32" ];
+        };
+
+        fluorine = {
+          publicKey = "fCw+r4TKsxh36CdDSc6BTf0an9F2O8KQ189dYukpFHs=";
+          ipv4 = [ "172.16.2.14/32" ];
+          persistentKeepalive = 10;
         };
 
         ov13 = {
