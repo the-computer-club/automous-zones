@@ -88,6 +88,11 @@
           persistentKeepalive = 10;
         };
 
+        "vxgw1.unallocatedspace.dev" = {
+          publicKey = "YH/HBw/jOrG3EnXBu4asoCKGu7nnp1GvsjsFE/96q1E=";
+          ipv4 = [ "172.16.2.15/32" ];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
