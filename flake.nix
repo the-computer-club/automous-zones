@@ -90,7 +90,7 @@
 
         "vxgw1.unallocatedspace.dev" = {
           publicKey = "YH/HBw/jOrG3EnXBu4asoCKGu7nnp1GvsjsFE/96q1E=";
-          ipv4 = [ "172.16.2.15/32" ];
+          ipv4 = [ "172.16.2.15/32" "172.16.2.18/32" "172.16.2.19/32" ];
         };
 
         cypress-initrd = {
@@ -101,18 +101,6 @@
         artix-initrd = {
           publicKey = "z74Ko8MZmZ40CKYfP3jekIydmtdNITRMQ55hrYp9TVQ=";
           ipv4 = [ "172.16.2.17/32" ];
-        };
-
-        cypress-ipmi = {
-          publicKey = "t/glnV6Radn7DLVVrohVWxXsJKqu5esNcjr+hBXC3Ao=";
-          ipv4 = [ "172.16.2.18/32" ];
-          persistentKeepAlive = 10;
-        };
-
-        charmander-ipmi = {
-          publicKey = "xQySx0SL9uzvBS77WU5hFJID+dUy4l8qrOwtUaCPX00=";
-          ipv4 = [ "172.16.2.19/32" ];
-          persistentKeepAlive = 10;
         };
 
         ov13 = {
