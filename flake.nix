@@ -93,6 +93,28 @@
           ipv4 = [ "172.16.2.15/32" ];
         };
 
+        cypress-initrd = {
+          publicKey = "rqHU9kjEuO6MBtXCON+qPjPwGBd1YF09oirl15M9xzM=";
+          ipv4 = [ "172.16.2.16/32" ];
+        };
+
+        artix-initrd = {
+          publicKey = "z74Ko8MZmZ40CKYfP3jekIydmtdNITRMQ55hrYp9TVQ=";
+          ipv4 = [ "172.16.2.17/32" ];
+        };
+
+        cypress-ipmi = {
+          publicKey = "t/glnV6Radn7DLVVrohVWxXsJKqu5esNcjr+hBXC3Ao=";
+          ipv4 = [ "172.16.2.18/32" ];
+          persistentKeepAlive = 10;
+        };
+
+        charmander-ipmi = {
+          publicKey = "t/glnV6Radn7DLVVrohVWxXsJKqu5esNcjr+hBXC3Ao=";
+          ipv4 = [ "172.16.2.19/32" ];
+          persistentKeepAlive = 10;
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
