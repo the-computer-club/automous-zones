@@ -110,7 +110,7 @@
         };
 
         charmander-ipmi = {
-          publicKey = "t/glnV6Radn7DLVVrohVWxXsJKqu5esNcjr+hBXC3Ao=";
+          publicKey = "xQySx0SL9uzvBS77WU5hFJID+dUy4l8qrOwtUaCPX00=";
           ipv4 = [ "172.16.2.19/32" ];
           persistentKeepAlive = 10;
         };
