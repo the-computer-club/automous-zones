@@ -110,6 +110,11 @@
           persistentKeepalive = 10;
         };
 
+        porsche = {
+          publicKey = "HRiHok1KckUH/sDwtPDIs9mJGxrCEbd61F/L4G4qgnY=";
+          ipv4 = [ "172.16.2.21/32" ];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
