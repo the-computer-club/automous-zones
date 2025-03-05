@@ -111,7 +111,7 @@
         };
 
         porsche = {
-          publicKey = "HRiHok1KckUH/sDwtPDIs9mJGxrCEbd61F/L4G4qgnY=";
+          publicKey = "xqavFCvLVGYDyG/2ytgg7H5EV2wYXXEsvMWsOw2DyXM=";
           ipv4 = [ "172.16.2.21/32" ];
         };
 
