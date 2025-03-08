@@ -115,6 +115,11 @@
           ipv4 = [ "172.16.2.21/32" ];
         };
 
+        helium = {
+          publicKey = "1OisEbl0ZTfqbUxrzMfKtoMD7Kz9VFahr0d+kpe9QB0=";
+          ipv4 = [ "172.16.2.22/32" ];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
