@@ -120,6 +120,11 @@
           ipv4 = [ "172.16.2.22/32" ];
         };
 
+        hypothalamus = {
+          publicKey = "9yzjykzsSnDxXA15sRf+PW/V3HFMxA3ZWTwngOWlUHk=";
+          ipv4 = [ "172.16.2.23/32" ];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
