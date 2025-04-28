@@ -124,6 +124,11 @@
           publicKey = "9yzjykzsSnDxXA15sRf+PW/V3HFMxA3ZWTwngOWlUHk=";
           ipv4 = [ "172.16.2.23/32" ];
         };
+        
+        mesalon = {
+          publicKey = "/6egVjOjIIgxEzBAW+SWjSTmauxA5spi8cVAaQUX5GY=";
+          ipv4 = [ "172.16.2.24/32" ];
+        };
 
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
