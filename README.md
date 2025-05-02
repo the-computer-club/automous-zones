@@ -1,6 +1,31 @@
 # automous-zones
 A P2P wireguard mesh network that underpins computer-club infrastructure. Its used as tunneling layer that lets us play games, share files, host services, etc.
 
+To Join add yourself to the peer list inside `flake.nix`
+
+- 1) Fork this repository,
+- 2) Generate a wireguard key, 
+- 3) Determine the next available IP address.
+- 4) Fill in the following information
+``` nix
+  ...
+  peers.by-name = {
+    ...
+    
+    hostname = {
+      publicKey = "..."; # wg genkey | tee private-key | wg pubkey
+      ipv4 = [ "172.16.2.XX/32" ];
+    };
+    
+    ...
+  };
+```
+
+- 5) Make sure you're in order of IP address.
+- 6) Setup a pull request on this repository.
+
+And you're done.
+
 ## FAQ
 
 What do you have access to:
