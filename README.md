@@ -8,7 +8,6 @@ What do you have access to:
   - some peers have `selfEndpoint` which lets you connect to them anytime.
   - All the IP addresses under 172.16.2.1 - 172.16.2.254 are routed under the VPN, which is everything you potentially have access to.
   
-
 Can people connect to me without me knowing:
   - No one can connect to you.
   
@@ -16,7 +15,7 @@ Can people connect to me without me knowing:
   
     If this is of concern to you, 
     make sure to include firewall rules at the endpoint which is hosting the private key to drop incoming connections. (This is the default policy on most OS's)
-  
+
 Can I turn off wireguard?:
   - You absolutely do not need this VPN running all the time.
 
@@ -28,6 +27,8 @@ What is a split VPN?:
   In the case of this network, only 172.16.2.0/24 is encapsulated, so only packets
   addressed to them will be sent through the VPN.
   
+Why can I not ping anyone?:
+  - If you were just recently added to the peer list, everyone who you wish to connect to must first update their peer list with your newly added keys. Some peers may never include your keys on the interface. If you lost access to a particular peer, try updating this configuration. They may updated their configuration.
 
 ## Support options
 ----
@@ -174,3 +175,50 @@ in
 }
 ```
 
+## Wireguard named keys.
+
+![screenshot](imgs/image.png)
+
+If you include `inputs.flake-guard-v2.url = github:the-computer-club/lynx/flake-guard-v2` 
+as an input to your flake, it provides `packages.x86_64-linux.wireguard-tools`
+
+
+```nix
+{ config, lib, pkgs, ... }:
+let
+  peerNames =
+    lib.foldl' lib.recursiveUpdate { }
+      (lib.mapAttrsToList
+        (network-name: network:
+          lib.mapAttrs' (k: v: lib.nameValuePair v.publicKey { name = k; })
+            network.peers.by-name
+        )
+        config.wireguard.build.networks
+      );
+in
+{
+  options.wireguard.named.enable =
+    lib.mkEnableOption "enable names on 'wg show <interface|all>'";
+
+  config = lib.mkIf config.wireguard.named.enable {
+    environment.sessionVariables.WG_NAME = lib.mkDefault
+      "path:///etc/wireguard/name.json";
+
+    environment.etc."wireguard/name.json".source =
+      builtins.toFile "name.json"
+        (builtins.toJSON peerNames);
+
+     environment.systemPackages = [
+         inputs.flake-guard-v2.packages.${pkgs.system}.wireguard-tools;
+     ];
+  };
+}
+
+
+/*
+  sudo nixos-rebuild switch -p [name]
+  creates a named entry in grub menu which is not
+  collected by nix-collect-garbage (unless -d is provided)
+*/
+
+```
