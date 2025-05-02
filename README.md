@@ -246,7 +246,7 @@ mv wireguard-entry-point.sh /bin/wg
 chmod +x /bin/wg /bin/wg-name
 chown root:root /bin/wg /bin/wg-name
 
-echo "WG_NAME='https://github.com/the-computer-club/automous-zones/releases/download/latest/asluni-name.json'" >> ~/.profile
+echo "WG_NAME='https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json'" >> ~/.profile
 ```
 
 
