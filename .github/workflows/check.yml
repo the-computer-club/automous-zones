@@ -1,6 +1,7 @@
 name: "nix build deployment test"
 on:
-  push
+  push:
+    branches: [ "main" ]
 jobs:
   build-wq-quick:
     runs-on: ubuntu-latest
