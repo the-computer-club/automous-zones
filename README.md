@@ -248,3 +248,9 @@ chown root:root /bin/wg /bin/wg-name
 
 echo "WG_NAME='https://github.com/the-computer-club/automous-zones/releases/download/latest/asluni-name.json'" >> ~/.profile
 ```
+
+
+```
+sudo wg show
+```
+should show names as seen above in the screen
