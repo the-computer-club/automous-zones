@@ -220,7 +220,7 @@ in
 
 
 ### Linux
-Download `wg-name` from flake-guard-v2
+Download `pkgs/wg-name/wg-name` from flake-guard-v2
 
 Create this file
 ```sh
