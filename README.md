@@ -38,19 +38,16 @@ Why can I not ping anyone?:
 wg-quick configuration [wg-asluni.conf](https://github.com/the-computer-club/automous-zones/releases/download/latest/wg-asluni.conf)
 
 #### To automatically update
-```
+```sh
 #!/usr/bin/env sh
-
 curl https://github.com/the-computer-club/automous-zones/releases/download/latest/wg-asluni.conf > /tmp/latest-asluni.conf
-
 cat /var/secrets/asluni.tmpl /tmp/latest-asluni.conf > /var/lib/wireguard/asluni.conf
-
 rm /tmp/latest-asluni.conf
 ```
 
 
 #### build from source
-```
+```sh
 nix eval github:the-computer-club/automous-zones#nixosModules.asluni.wireguard.networks.asluni.peers.by-name --apply "x: {Peer = builtins.attrValues ((builtins.mapAttrs(name: peer: { AllowedIPs = peer.ipv4; PublicKey = peer.publicKey; } // (if peer ? selfEndpoint then { Endpoint = peer.selfEndpoint; } else {}) )) x);}" --json | remarshal --if json --of toml | sed 's/"//g' | sed 's/\[\[/\[/g' | sed 's/\]\]/\]/g' | sed "s/\[1/1/" | sed "s/2\]/2/g"
 ```
 
@@ -175,13 +172,20 @@ in
 }
 ```
 
-## Wireguard named keys.
+### Wireguard named keys.
 
 ![screenshot](imgs/image.png?height=100)
 
 
-### NixOS
+### Nix
 
+try it out before you buy it.
+```sh
+WG_NAME="https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json" sudo -E nix run github:the-computer-club/lynx/flake-guard-v2#wireguard-tools -- show
+```
+
+### NixOS
+---
 If you include `inputs.flake-guard-v2.url = github:the-computer-club/lynx/flake-guard-v2` 
 as an input to your flake, it provides `packages.x86_64-linux.wireguard-tools`
 
@@ -218,8 +222,14 @@ in
 }
 ```
 
+Now run.
+```sh
+sudo wg show
+```
+should show names as seen above in the screenshot
 
 ### Linux
+---
 Download `pkgs/wg-name/wg-name` from flake-guard-v2
 
 Create this file
@@ -249,16 +259,8 @@ chown root:root /bin/wg /bin/wg-name
 echo "WG_NAME=https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json" >> ~/.profile
 ```
 
-
-```
+Now run.
+```sh
 sudo wg show
 ```
-should show names as seen above in the screen
-
-
-#### parlor trick
-
-perhaps a parlor trick for those with `nix`
-```sh
-WG_NAME="https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json" sudo -E nix run github:the-computer-club/lynx/flake-guard-v2#wireguard-tools -- show
-```
+should show names as seen above in the screenshot
