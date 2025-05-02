@@ -246,7 +246,7 @@ mv wireguard-entry-point.sh /bin/wg
 chmod +x /bin/wg /bin/wg-name
 chown root:root /bin/wg /bin/wg-name
 
-echo "WG_NAME='https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json'" >> ~/.profile
+echo "WG_NAME=https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json" >> ~/.profile
 ```
 
 
@@ -254,3 +254,11 @@ echo "WG_NAME='https://github.com/the-computer-club/automous-zones/releases/down
 sudo wg show
 ```
 should show names as seen above in the screen
+
+
+#### parlor trick
+
+perhaps a parlor trick for those with `nix`
+```sh
+WG_NAME="https://github.com/the-computer-club/automous-zones/releases/download/latest/name.json" sudo -E nix run github:the-computer-club/lynx/flake-guard-v2#wireguard-tools -- show
+```
