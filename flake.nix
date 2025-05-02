@@ -130,6 +130,16 @@
           ipv4 = [ "172.16.2.24/32" ];
         };
 
+        mesalon = {
+          publicKey = "NBXhSrqgTN2LDfJ6MhqVwWFfxyBaqBjR5fYfLjb+gg8=";
+          ipv4 = [ "172.16.2.24/32" ];
+        };
+
+        mesalon-vps = {
+          publicKey = "/6egVjOjIIgxEzBAW+SWjSTmauxA5spi8cVAaQUX5GY=";
+          ipv4 = [ "172.16.2.25/32" ];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
