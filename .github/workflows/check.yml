@@ -12,9 +12,11 @@ jobs:
         nix_path: nixpkgs=channel:nixos-unstable
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - run: |
-        nix eval github:the-computer-club/automous-zones#nixosModules.asluni.wireguard.networks.asluni.peers.by-name --apply "x: {Peer = builtins.attrValues ((builtins.mapAttrs(name: peer: { AllowedIPs = peer.ipv4; PublicKey = peer.publicKey; } // (if peer ? selfEndpoint then { Endpoint = peer.selfEndpoint; } else {}) )) x);}" --json > asluni.json
+        nix eval .#nixosModules.asluni.wireguard.networks.asluni.peers.by-name --apply "x: {Peer = builtins.attrValues ((builtins.mapAttrs(name: peer: { AllowedIPs = peer.ipv4; PublicKey = peer.publicKey; } // (if peer ? selfEndpoint then { Endpoint = peer.selfEndpoint; } else {}) )) x);}" --json > asluni.json
 
         nix run nixpkgs#remarshal -- asluni.json --if json --of toml | sed 's/"//g' | sed 's/\[\[/\[/g' | sed 's/\]\]/\]/g' | sed "s/\[1/1/" | sed "s/2\]/2/g" > wg-asluni.conf
+
+        nix eval .#nixosModules.asluni.wireguard.networks.asluni.peers.by-name --json --apply 'net: builtins.foldl\' (s: x: s // x) {} (builtins.attrValues (builtins.mapAttrs(name: peer: { "${peer.publicKey}" = { inherit name; }; }) net))' > name.json
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
@@ -24,3 +26,4 @@ jobs:
         title: "wg-asluni.conf"
         files: |
           wg-asluni.conf
+          name.json
