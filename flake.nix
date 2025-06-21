@@ -3,21 +3,55 @@
   outputs = _:
   let
     mapAttrsToList = f: attrs: map (name: f name attrs.${name}) (builtins.attrNames attrs);
+    toNonFlakeParts = data: (mapAttrsToList toPeers data);
     toPeers = n: v: {
       publicKey = v.publicKey;
       allowedIPs = v.ipv4;
       endpoint = v.selfEndpoint or null;
       persistentKeepalive = v.persistentKeepalive or null;
     };
-    toNonFlakeParts = data: (mapAttrsToList toPeers data);
+
+    peers = wireguard.networks.asluni.peers.by-name;
+
+    peerARecord = p: {
+      A =
+          if p ? ipv4
+          then p.ipv4
+          else [];
+
+      AAAA =
+        if p ? ipv6
+        then p.ipv6
+        else [];
+     };
+
+    zones =
+       let
+         NS = ["ns2.unallocatedspace.luni"];
+         SOA = {
+           nameServer = "unallocatedspace.luni.";
+           adminEmail = "contact@unallocatedspace.luni";
+           serial = 2025061100; # 2025-06-11-00
+         };
+       in
+      {
+        "unallocatedspace.luni" = (peerARecord peers.artix) // {
+          inherit NS SOA;
+          subdomains = [
+            "codex" "buildbot" "sesh"
+            "tape" "turn" "media"
+            "jitsi"
+          ];
+        };
+      };
 
     wireguard.networks.asluni = {
       listenPort = 63723;
       peers.by-name = {
         cardinal = {
-            publicKey = "2Q5yU5ueoDcEc+Segj/FJZ61IIiLWUVHtzf4uV31NjI=";
-            ipv4 = [ "172.16.2.1/32" ];
-            selfEndpoint = "unallocatedspace.dev:63723";
+          publicKey = "2Q5yU5ueoDcEc+Segj/FJZ61IIiLWUVHtzf4uV31NjI=";
+          ipv4 = [ "172.16.2.1/32" ];
+          selfEndpoint = "unallocatedspace.dev:63723";
         };
 
         artix = {
@@ -184,9 +218,8 @@
     };
   in
   {
-    lib = {
-      inherit toPeers toNonFlakeParts;
-    };
+    inherit zones;
+    lib = { inherit toPeers toNonFlakeParts; };
     flakeModules.asluni = { inherit wireguard; };
     nixosModules.asluni = { inherit wireguard; };
   };
