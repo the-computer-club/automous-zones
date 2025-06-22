@@ -29,7 +29,7 @@
 
     zones =
        let
-         NS = ["ns2.unallocatedspace.luni"];
+         NS = ["ns2.unallocatedspace.luni."];
          SOA = {
            nameServer = "unallocatedspace.luni.";
            adminEmail = "contact@unallocatedspace.luni";
