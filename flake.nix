@@ -33,15 +33,22 @@
            adminEmail = "contact@unallocatedspace.luni";
            serial = 2025061100; # 2025-06-11-00
          };
+
+         artixRec = (peerARecord peers.artix);
        in
       {
-        "unallocatedspace.luni" = (peerARecord peers.artix) // {
+        "unallocatedspace.luni" = artixRec // {
           inherit NS SOA;
-          subdomains = [
-            "codex" "buildbot" "sesh"
-            "tape" "turn" "media"
-            "jitsi"
-          ];
+          subdomains = {
+            codex = artixRec;
+            buildbot = artixRec;
+            sesh = artixRec;
+            tape = artixRec;
+            turn = artixRec;
+            media = artixRec;
+            jitsi = artixRec;
+
+          };
         };
       };
 
