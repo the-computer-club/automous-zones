@@ -16,13 +16,15 @@
     peerARecord = p: {
       A =
           if p ? ipv4
-          then p.ipv4
+          then map (x: builtins.head (builtins.split "/" x)) p.ipv4
           else [];
-
       AAAA =
-        if p ? ipv6
-        then p.ipv6
-        else [];
+        if
+          p ? ipv6
+        then
+          map (x: builtins.head (builtins.split "/" x)) p.ipv6
+        else
+          [];
      };
 
     zones =
@@ -47,7 +49,6 @@
             turn = artixRec;
             media = artixRec;
             jitsi = artixRec;
-
           };
         };
       };
