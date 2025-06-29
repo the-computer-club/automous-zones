@@ -50,6 +50,8 @@
             media = artixRec;
             jitsi = artixRec;
             pgadmin = artixRec;
+            admin = artixRec;
+            mumble = artixRec;
           };
         };
       };
