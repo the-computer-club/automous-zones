@@ -49,6 +49,7 @@
             turn = artixRec;
             media = artixRec;
             jitsi = artixRec;
+            pgadmin = artixRec;
           };
         };
       };

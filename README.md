@@ -11,12 +11,10 @@ To Join add yourself to the peer list inside `flake.nix`
   ...
   peers.by-name = {
     ...
-    
     hostname = {
       publicKey = "..."; # wg genkey | tee private-key | wg pubkey
       ipv4 = [ "172.16.2.XX/32" ];
     };
-    
     ...
   };
 ```
@@ -36,7 +34,7 @@ What do you have access to:
 Can people connect to me without me knowing:
   - No one can connect to you.
   
-    Except, on the occasion that you try connecting to a peer with `selfEndpoint` defined, or yourself have defined `selfEndpoint`. Then infact, they can connect back to you while a pathway is established.
+    Except, on the occasion that you try connecting to a peer with `selfEndpoint` defined, or yourself have defined `selfEndpoint`. Then in fact, they can connect back to you while a pathway is established.
   
     If this is of concern to you, 
     make sure to include firewall rules at the endpoint which is hosting the private key to drop incoming connections. (This is the default policy on most OS's)
@@ -196,6 +194,31 @@ in
   };
 }
 ```
+
+## DNS Support
+
+### resolv.conf
+
+``` sh
+echo "nameserver 172.16.2.2" | resolvconf -a asluni -m 0 -x
+```
+
+### systemd-resolved
+
+```sh
+sudo systemd-resolve -i asluni --set-dns=172.16.2.6:5333 --set-dns=172.16.2.6:5334
+resolvectl domain asluni luni. _wireguard._udp.luni.b32.
+```
+
+### dnscrypt
+
+```nix
+services.dnscrypt-proxy2.settings.forwarding = pkgs.writeText "forwarding_rules.txt" ''
+  luni 172.16.2.2:5334
+  luni.b32 172.16.2.2:5333
+'';
+```
+
 
 ### Wireguard named keys.
 
