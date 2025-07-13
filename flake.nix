@@ -229,7 +229,7 @@
 
       lib = rec {
         mapAttrsToList = f: attrs: map (name: f name attrs.${name}) (builtins.attrNames attrs);
-        toNonFlakeParts = data: (mapAttrsToList toPeers data);
+        toNonFlakeParts = mapAttrsToList toPeers;
         toPeers = n: v: {
           publicKey = v.publicKey;
           allowedIPs = v.ipv4 ++ v.ipv6 or [];
@@ -262,7 +262,11 @@
         }
       ) (import inputs.systems);
 
-      flakeModules.asluni = { inherit (self) wireguard; };
+      flakeModules = {
+        asluni = { inherit (self) wireguard; };
+        flake-guard-v1 = inputs.flake-guard-v1.flakeModules.flake-guard;
+        flake-guard-v2 = inputs.flake-guard-v2.flakeModules.flake-guard;
+      };
 
       nixosModules = {
         flake-guard = inputs.lynx.nixosModules.flake-guard;
@@ -292,11 +296,38 @@
         client-dns-resolved = ./nixosModules/client/resolver/resolvconf.nix;
         client-dns-wgquick = ./nixosModules/client/resolver/wg-quick.nix;
 
+        client-hostnames = {lib, ...}: {
+          autoConfig."networking.hostnames".names.enable = lib.mkDefault true;
+        };
+
         ####
         # determine how the network is configured on box.
-        client-flake-guard-legacy = (import ./nixosModules/client/legacy.nix self);
-        client-flake-guard-v1 = (import ./nixosModules/client/flake-guard-v1.nix self);
-        client-flake-guard-v2 = (import ./nixosModules/client/flake-guard-v2.nix self);
+        client-flake-guard-legacy.networking.wireguard.interfaces.asluni.peers =
+          self.lib.nonFlakeParts self.wireguard.networks.asluni;
+
+        client-flake-guard-v1 = {lib, ...}: {
+          # This version preferred you using
+          # self.nixosModules.flake-guard-host
+          # which was generated from using flake-parts.
+          networking.wireguard.networks.asluni = lib.mkDefault self.wireguard.networks.asluni;
+          networking.wireguard.enable = true;
+        };
+
+        client-flake-guard-v2.wireguard.networks.asluni = {lib, ...}: {
+          # This version ports the existing flake-parts options to
+          # nixos modules. This also features different output types.
+          # NOTE: will be superseeded by v3 eventually, expect
+          # breaking changes between v2 & v3.
+          imports = [ inputs.flake-guard-v2.nixosModules.flake-guard ];
+          autoConfig = {
+            openFirewall = lib.mkDefault true;
+            "networking.wireguard" = {
+              interface.enable = lib.mkDefault true;
+              peers.mesh.enable = lib.mkDefault true;
+            };
+          };
+        };
+
         client-certs.security.pki.certificateFiles = [ ./pki/root_ca.cert ];
 
         ####
@@ -330,11 +361,11 @@
             client-wgsd-discovery
             client-named-peers
             flake-guard-v2
+            client-flake-guard-v2
           ];
 
           wireguard.enable = lib.mkDefault true;
           wireguard.named.enable = lib.mkDefault true;
-
         };
       };
 
