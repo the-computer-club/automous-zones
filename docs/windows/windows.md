@@ -1,5 +1,4 @@
-# asluni for windows
-
+# Windows
 
 ## Download & Install Wireguard
 
@@ -70,7 +69,6 @@ Follow instructions here
 https://www.sonicwall.com/support/knowledge-base/how-can-i-import-certificates-into-the-ms-windows-local-machine-certificate-store/170504615105398
 
 with the exemption of the slide
-https://sonicwall.rightanswers.com/portal/app/portlets/results/onsitehypermedia/090170803008359.png?linkToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzb25pY3dhbGwiLCJpYXQiOjE3NDkxMjcyNjcsImV4cCI6MTc4MDY2MzI2N30.U4nCBU5-rCtsmwMexJl_PMLfTpo-QmbDNPp-XhZlFhA
 
 https://sonicwall.rightanswers.com/portal/app/portlets/results/onsitehypermedia/090170803312789.png?linkToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzb25pY3dhbGwiLCJpYXQiOjE3NDkxMjcyNjcsImV4cCI6MTc4MDY2MzI2N30.U4nCBU5-rCtsmwMexJl_PMLfTpo-QmbDNPp-XhZlFhA
 
@@ -106,7 +104,7 @@ QzREttzO8ulAkNoRiwIgCaflXonMtBg2XLRqOKo28XHbKcwHsrzKEPCapDNGmk4=
 -----END CERTIFICATE-----
 ```
 
-## unallocatedspace.luni.crt
+## *.unallocatedspace.luni
 ```
 -----BEGIN CERTIFICATE-----
 MIIB+DCCAZ6gAwIBAgIRAJFPCAVV1J7GLnYZAX5ZygAwCgYIKoZIzj0EAwIwKzEp
@@ -139,3 +137,5 @@ QzREttzO8ulAkNoRiwIgCaflXonMtBg2XLRqOKo28XHbKcwHsrzKEPCapDNGmk4=
 ```
 curl unallocatedspace.luni
 ```
+
+
