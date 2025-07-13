@@ -5,22 +5,22 @@ let
 in
 {
   services.dns-forwarder = {
-    listenPort = 5353;
-    listenAddress = "172.16.2.2";
-    forwardAddress = "172.16.2.2";
-    forwardPort = 53;
+    listenPort = lib.mkDefault 5353;
+    listenAddress = lib.mkDefault "172.16.2.2";
+    forwardAddress = lib.mkDefault "172.16.2.2";
+    forwardPort = lib.mkDefault 53;
     openFirewall = false;
   };
 
   services.nsd = {
-    port = 5334;
+    port = lib.mkDefault 5334;
     interfaces = [ "lo" ];
-    inherit zones;
+    zones = lib.mkDefault zones;
   };
 
   services.coredns = {
-    extraArgs = [ "-dns.port=53" ];
-    config = ''
+    extraArgs = lib.mkDefault [ "-dns.port=53" ];
+    config = lib.mkDefault ''
       . {
         bind asluni
         wgsd luni.b32. asluni
@@ -30,10 +30,8 @@ in
       }
     '';
 
-    package = wgsd;
+    package = lib.mkDefault wgsd;
   };
-
-  networking.firewall.interfaces.asluni.allowedUDPPorts = [ 53 5353 ];
 
   ####
   # NOTE: wgsd needs cap_net_admin to read the wireguard peers

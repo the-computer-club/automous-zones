@@ -18,7 +18,8 @@
       };
     };
 
-    lynx = "github:the-computer-club/lynx/flake-guard-v2";
+    flake-guard-v2 = "github:the-computer-club/lynx/flake-guard-v2";
+    flake-guard-v1 = "github:the-computer-club/lynx";
   };
 
   outputs = inputs@{self, nixpkgs, systems}:
@@ -280,6 +281,10 @@
         client-named-peers = ./nixosModules/client/wg-named.nix;
 
         ####
+        #
+        client-wgsd-discovery = ./nixosModules/client/wgsd-timer.nix;
+
+        ####
         # Client configuration using dnscrypt over doh. (dns over http)
         # Currently the dns service
         client-dns-dnscrypt = ./nixosModules/client/resolver/dnscrypt2-proxy.nix;
@@ -308,7 +313,7 @@
           services.coredns.enable = lib.mkDefault true;
 
           networking.firewall.interfaces.asluni.allowedUDPPorts =
-            (lib.optional config.dns-forwarder config.dns-forwarder.listenPort)
+            (lib.optional config.dns-forwarder.enable config.dns-forwarder.listenPort)
             ++ (lib.optional config.coredns.enable 53);
         };
 
@@ -322,10 +327,14 @@
           imports = with self.nixosModules; [
             asluni
             client-certs
+            client-wgsd-discovery
             client-named-peers
+            flake-guard-v2
           ];
 
+          wireguard.enable = lib.mkDefault true;
           wireguard.named.enable = lib.mkDefault true;
+
         };
       };
 
