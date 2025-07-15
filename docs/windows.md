@@ -46,13 +46,13 @@ dnscrypt-proxy.exe -service start
 
 
 ## clear existing DNS records
-(powershell)
+bat
 ```
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ()
 ```
 
 ### set primary DNS to DNSProxy
-(powershell)
+bat
 ```
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("127.0.0.1")
 ```
