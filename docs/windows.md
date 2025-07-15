@@ -33,9 +33,11 @@ rename `example-forwarding-rules.txt` to `forwarding-rules.txt`
 add the following to `forwarding-rules.txt`
 
 ```
-luni     172.16.2.2:5334
-luni.b32 172.16.2.2:5333
+luni     172.16.2.2:53
+luni.b32 172.16.2.2:53
 ```
+(alternate port is hosted on 5334)
+
 
 ## Install DNS proxy as a service
 
