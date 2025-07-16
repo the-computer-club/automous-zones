@@ -32,10 +32,10 @@ in
               block net 0.0.0.0/0
           }
 
-          secondary {
-              transfer to 172.16.2.1
-              transfer from 172.16.2.2
-          }
+          # secondary {
+          #     transfer to 172.16.2.1
+          #     transfer from 172.16.2.2
+          # }
 
           # Forward unresolved queries
           forward . 8.8.8.8 8.8.4.4 {
