@@ -366,6 +366,7 @@
 
           wireguard.enable = lib.mkDefault true;
           wireguard.named.enable = lib.mkDefault true;
+          services.wgsd-client.enable = true;
         };
       };
 
