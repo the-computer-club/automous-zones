@@ -294,7 +294,7 @@
         client-dns-dnscrypt = ./nixosModules/client/resolver/dnscrypt2-proxy.nix;
         client-dns-resolvconf = ./nixosModules/client/resolver/resolvconf.nix;
         client-dns-resolved = ./nixosModules/client/resolver/resolvconf.nix;
-        client-dns-wgquick = ./nixosModules/client/resolver/wg-quick.nix;
+        # client-dns-wgquick = ./nixosModules/client/resolver/wg-quick.nix;
 
         client-hostnames = {lib, ...}: {
           autoConfig."networking.hostnames".names.enable = lib.mkDefault true;
