@@ -286,7 +286,7 @@
 
         ####
         #
-        client-wgsd-discovery = ./nixosModules/client/wgsd-timer.nix;
+        client-wgsd-discovery = ./nixosModules/client/wgsd-service.nix;
 
         ####
         # Client configuration using dnscrypt over doh. (dns over http)

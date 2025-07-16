@@ -42,6 +42,8 @@ in
 
     # Systemd service
     systemd.services.wgsd-client = {
+      after = [ "network.target" ];
+      wants = [ "network.target" ];
       description = "wgsd-client service";
       serviceConfig = {
         Type = "oneshot";
@@ -63,6 +65,8 @@ in
     # Systemd timer
     systemd.timers.wgsd-client = {
       description = "Timer for wgsd-client service";
+      after = [ "network.target" ];
+      wants = [ "network.target" ];
       timerConfig = {
         OnBootSec = cfg.interval;
         OnUnitActiveSec = cfg.interval;
