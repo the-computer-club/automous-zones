@@ -33,9 +33,8 @@
          SOA = {
            nameServer = "unallocatedspace.luni.";
            adminEmail = "contact@unallocatedspace.luni";
-           serial = 2025061100; # 2025-06-11-00
+           serial = 2025072000; # 2025-07-20-00
          };
-
          artixRec = (peerARecord peers.artix);
        in
       {
@@ -52,6 +51,7 @@
             pgadmin = artixRec;
             admin = artixRec;
             mumble = artixRec;
+            flagship = peerARecord peers.flagship;
           };
         };
       };
