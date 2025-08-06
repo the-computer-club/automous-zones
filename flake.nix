@@ -135,6 +135,11 @@
           ipv4 = [ "172.16.2.25/32" ];
         };
 
+        xps = {
+          publicKey = "FHFRuL9Qjc/njQKfGT2faCVzi7lyn1uFhK8WQSrQTRA=";
+          ipv4 = ["172.16.2.26/32"];
+        };
+
         ov13 = {
           publicKey = "S6yiCMatKlVX0WxyaWXTizasZPfQQ9oGM2pv82CtrgM=";
           ipv4 = [ "172.16.2.27/32" ];
